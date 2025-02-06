@@ -1,101 +1,118 @@
-import Image from "next/image";
+import type { NextPage } from 'next';
+import Image from 'next/image';
 
-export default function Home() {
+const Home: NextPage = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-gray-900 text-white">
+      {/* Header */}
+      <header className="p-6 bg-gray-800">
+        <div className="container mx-auto flex justify-between items-center">
+          <h1 className="text-2xl font-bold">My Portfolio</h1>
+          <nav>
+            <ul className="flex space-x-4">
+              <li><a href="#about" className="hover:text-gray-400">About</a></li>
+              <li><a href="#projects" className="hover:text-gray-400">Projects</a></li>
+              <li><a href="#contact" className="hover:text-gray-400">Contact</a></li>
+            </ul>
+          </nav>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+      </header>
+
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center h-screen bg-gray-800">
+        <div className="text-center">
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/profile.jpg" // Replace with your profile image
+            alt="Profile Picture"
+            width={150}
+            height={150}
+            className="rounded-full"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          <h1 className="mt-4 text-4xl font-bold">John Doe</h1>
+          <p className="mt-2 text-xl text-gray-400">Full Stack Developer</p>
+          <button className="mt-6 px-6 py-2 bg-blue-600 rounded-lg hover:bg-blue-700">
+            View My Work
+          </button>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 bg-gray-900">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center">About Me</h2>
+          <p className="mt-4 text-gray-400 text-center max-w-2xl mx-auto">
+            I am a passionate full-stack developer with experience in building web applications using modern technologies like Next.js, React, and Tailwind CSS. I love solving problems and creating user-friendly interfaces.
+          </p>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 bg-gray-800">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center">Projects</h2>
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Project Card 1 */}
+            <div className="bg-gray-700 p-6 rounded-lg">
+              <h3 className="text-xl font-bold">Project 1</h3>
+              <p className="mt-2 text-gray-400">A web application built with Next.js and Tailwind CSS.</p>
+              <a href="#" className="mt-4 inline-block text-blue-400 hover:text-blue-300">View Project</a>
+            </div>
+            {/* Project Card 2 */}
+            <div className="bg-gray-700 p-6 rounded-lg">
+              <h3 className="text-xl font-bold">Project 2</h3>
+              <p className="mt-2 text-gray-400">An e-commerce platform using React and Node.js.</p>
+              <a href="#" className="mt-4 inline-block text-blue-400 hover:text-blue-300">View Project</a>
+            </div>
+            {/* Project Card 3 */}
+            <div className="bg-gray-700 p-6 rounded-lg">
+              <h3 className="text-xl font-bold">Project 3</h3>
+              <p className="mt-2 text-gray-400">A mobile app built with React Native.</p>
+              <a href="#" className="mt-4 inline-block text-blue-400 hover:text-blue-300">View Project</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-gray-900">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center">Contact Me</h2>
+          <form className="mt-8 max-w-2xl mx-auto">
+            <div className="space-y-4">
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+              />
+              <textarea
+                placeholder="Your Message"
+                rows={5}
+                className="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+              />
+              <button
+                type="submit"
+                className="w-full px-6 py-3 bg-blue-600 rounded-lg hover:bg-blue-700"
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-6 bg-gray-800">
+        <div className="container mx-auto text-center">
+          <p className="text-gray-400">&copy; 2023 John Doe. All rights reserved.</p>
+        </div>
       </footer>
     </div>
   );
-}
+};
+
+export default Home;
