@@ -1,118 +1,128 @@
-import type { NextPage } from 'next';
-import Image from 'next/image';
+import React from 'react';
+import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
 
-const Home: NextPage = () => {
+const Portfolio = () => {
+  const projects = [
+    {
+      title: "Project 1",
+      description: "Description of your first web project",
+      videoPlaceholder: true,
+    },
+    {
+      title: "Project 2",
+      description: "Description of your second web project",
+      videoPlaceholder: true,
+    },
+    {
+      title: "Project 3",
+      description: "Description of your third web project",
+      videoPlaceholder: true,
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="p-6 bg-gray-800">
-        <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold">My Portfolio</h1>
-          <nav>
-            <ul className="flex space-x-4">
-              <li><a href="#about" className="hover:text-gray-400">About</a></li>
-              <li><a href="#projects" className="hover:text-gray-400">Projects</a></li>
-              <li><a href="#contact" className="hover:text-gray-400">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
+      <header className="fixed top-0 w-full bg-white shadow-sm z-50">
+        <nav className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+          <h1 className="text-xl font-bold">Harits R. Setiono</h1>
+          <div className="space-x-6">
+            <a href="#projects" className="hover:text-blue-600">Projects</a>
+            <a href="#about" className="hover:text-blue-600">About</a>
+            <a href="#contact" className="hover:text-blue-600">Contact</a>
+          </div>
+        </nav>
       </header>
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center h-screen bg-gray-800">
-        <div className="text-center">
-          <Image
-            src="/profile.jpg" // Replace with your profile image
-            alt="Profile Picture"
-            width={150}
-            height={150}
-            className="rounded-full"
-          />
-          <h1 className="mt-4 text-4xl font-bold">John Doe</h1>
-          <p className="mt-2 text-xl text-gray-400">Full Stack Developer</p>
-          <button className="mt-6 px-6 py-2 bg-blue-600 rounded-lg hover:bg-blue-700">
-            View My Work
-          </button>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-20 bg-gray-900">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center">About Me</h2>
-          <p className="mt-4 text-gray-400 text-center max-w-2xl mx-auto">
-            I am a passionate full-stack developer with experience in building web applications using modern technologies like Next.js, React, and Tailwind CSS. I love solving problems and creating user-friendly interfaces.
-          </p>
+      <section className="pt-24 pb-12 px-4 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl font-bold mb-4">Harits Raharjo Setiono</h1>
+          <p className="text-xl text-gray-600 mb-8">Web Developer & Designer</p>
+          <div className="flex justify-center space-x-4">
+            <a href="#" className="p-2 hover:text-blue-600">
+              <Github size={24} />
+            </a>
+            <a href="#" className="p-2 hover:text-blue-600">
+              <Linkedin size={24} />
+            </a>
+            <a href="#" className="p-2 hover:text-blue-600">
+              <Mail size={24} />
+            </a>
+          </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-gray-800">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center">Projects</h2>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Project Card 1 */}
-            <div className="bg-gray-700 p-6 rounded-lg">
-              <h3 className="text-xl font-bold">Project 1</h3>
-              <p className="mt-2 text-gray-400">A web application built with Next.js and Tailwind CSS.</p>
-              <a href="#" className="mt-4 inline-block text-blue-400 hover:text-blue-300">View Project</a>
-            </div>
-            {/* Project Card 2 */}
-            <div className="bg-gray-700 p-6 rounded-lg">
-              <h3 className="text-xl font-bold">Project 2</h3>
-              <p className="mt-2 text-gray-400">An e-commerce platform using React and Node.js.</p>
-              <a href="#" className="mt-4 inline-block text-blue-400 hover:text-blue-300">View Project</a>
-            </div>
-            {/* Project Card 3 */}
-            <div className="bg-gray-700 p-6 rounded-lg">
-              <h3 className="text-xl font-bold">Project 3</h3>
-              <p className="mt-2 text-gray-400">A mobile app built with React Native.</p>
-              <a href="#" className="mt-4 inline-block text-blue-400 hover:text-blue-300">View Project</a>
-            </div>
+      <section id="projects" className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div className="aspect-video bg-gray-200 flex items-center justify-center">
+                  <img 
+                    src="/api/placeholder/400/225" 
+                    alt="Project video placeholder"
+                    className="w-full h-full object-cover" 
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                  <p className="text-gray-600 mb-4">{project.description}</p>
+                  <a href="#" className="text-blue-600 hover:text-blue-800 flex items-center">
+                    View Project <ExternalLink size={16} className="ml-1" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8">About Me</h2>
+          <div className="prose prose-lg mx-auto">
+            <p className="text-gray-600">
+              I'm a web developer passionate about creating beautiful and functional websites.
+              With expertise in modern web technologies including React, Next.js, and TypeScript,
+              I focus on delivering high-quality web solutions that meet client needs.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-900">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center">Contact Me</h2>
-          <form className="mt-8 max-w-2xl mx-auto">
-            <div className="space-y-4">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-              />
-              <textarea
-                placeholder="Your Message"
-                rows={5}
-                className="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-              />
-              <button
-                type="submit"
-                className="w-full px-6 py-3 bg-blue-600 rounded-lg hover:bg-blue-700"
-              >
-                Send Message
-              </button>
+      <section id="contact" className="py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8">Get In Touch</h2>
+          <div className="flex flex-col items-center space-y-4">
+            <a href="mailto:your.email@example.com" className="flex items-center text-blue-600 hover:text-blue-800">
+              <Mail size={20} className="mr-2" />
+              your.email@example.com
+            </a>
+            <div className="flex space-x-4">
+              <a href="#" className="p-2 hover:text-blue-600">
+                <Github size={24} />
+              </a>
+              <a href="#" className="p-2 hover:text-blue-600">
+                <Linkedin size={24} />
+              </a>
             </div>
-          </form>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-6 bg-gray-800">
-        <div className="container mx-auto text-center">
-          <p className="text-gray-400">&copy; 2023 John Doe. All rights reserved.</p>
+      <footer className="py-8 px-4 bg-gray-800 text-white">
+        <div className="max-w-6xl mx-auto text-center">
+          <p>&copy; {new Date().getFullYear()} Harits R. Setiono. All rights reserved.</p>
         </div>
       </footer>
     </div>
   );
 };
 
-export default Home;
+export default Portfolio;
